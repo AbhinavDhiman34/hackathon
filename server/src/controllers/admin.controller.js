@@ -2,7 +2,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/apiError.js";
 import { ApiResponse } from "../utils/apiResponse.js";
 import { Admin } from "../models/admin.model.js";
-
+import { Student } from "../models/student.model.js";
 const generateAccessAndRefrshToken = async (adminId) => {
     try {
       const admin = await Admin.findById(adminId);
@@ -92,3 +92,11 @@ export const adminLogin = asyncHandler(async (req, res) => {
         )
       );
   });
+
+
+  //get student payment success detail
+  export const seeAllFeeList = asyncHandler(async (req, res) => {
+    const student = await Student.find();
+    return res.status(200).json(new ApiResponse(200, student, "fee list of all students"));
+  });
+  

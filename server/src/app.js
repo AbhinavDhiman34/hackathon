@@ -22,10 +22,11 @@ app.use(cookieParser()); // Parse cookies
 // importing route
 
 import adminRouter from "./routes/admin.routes.js";
-
+import Studentrouter from "./routes/student.routes.js";
 
 
 //using routes
 app.use("/api/v1/admin", adminRouter);
+app.use("/api/v1/student", Studentrouter);
 
 export default app;

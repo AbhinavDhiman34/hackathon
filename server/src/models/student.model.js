@@ -1,12 +1,16 @@
-const adminSchema = new mongoose.Schema({
+import mongoose from "mongoose"
+
+
+
+const studentSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true,
+        
         unique: true
     },
-    email: {
+    email: {  
         type: String,
-        required: true,
+        
         unique: true
     },
     fathername: {
@@ -31,3 +35,7 @@ const adminSchema = new mongoose.Schema({
     },
 
 }, { timestamps: true })
+
+
+
+export const Student =  mongoose.model("Student", studentSchema)
